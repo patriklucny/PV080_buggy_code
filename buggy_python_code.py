@@ -1,10 +1,10 @@
 import flask
 import yaml
 
-app = flask.Flask(__name__)
+APP = flask.Flask(__name__)
 
 
-@app.route("/")
+@APP.route("/")
 def index():
     '''Function docstring'''
     version = flask.request.args.get("urllib_version")
@@ -48,6 +48,7 @@ def authenticate(password):
     # Assert that the password is correct
     assert password == "Iloveyou", "Invalid password!"
     print("Successfully authenticated!")
+
 
 if __name__ == '__main__':
     print("Vulnerabilities:")
