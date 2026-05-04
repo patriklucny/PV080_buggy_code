@@ -1,5 +1,3 @@
-## import sys
-## import os
 import flask
 import yaml
 
@@ -15,7 +13,7 @@ def index():
 
 
 CONFIG = {"API_KEY": "771df488714111d39138eb60df756e6b"}
-class Person(object):
+class Person():
     '''Class docstring'''
     def __init__(self, name):
         self.name = name
@@ -34,7 +32,7 @@ def fetch_website(urllib_version, url):
 
     try:
         http = urllib.PoolManager()
-        ## r = http.request('GET', url)
+        http.request('GET', url)
     except:
         print('Exception')
 
@@ -57,16 +55,16 @@ if __name__ == '__main__':
     print("2. Code injection vulnerability:")
     print("3. Yaml deserialization vulnerability:")
     print("4. Use of assert statements vulnerability:")
-    choice  = input("Select vulnerability: ")
-    if choice == "1":
+    CHOICE = input("Select vulnerability: ")
+    if CHOICE == "1":
         NEW_PERSON = Person("Vickie")
         print_nametag(input("Please format your nametag: "), NEW_PERSON)
-    elif choice == "2":
-        urlib_version = input("Choose version of urllib: ")
-        fetch_website(urlib_version, url="https://www.google.com")
-    elif choice == "3":
+    elif CHOICE == "2":
+        URLLIB_VERSION = input("Choose version of urllib: ")
+        fetch_website(URLLIB_VERSION, url="https://www.google.com")
+    elif CHOICE == "3":
         load_yaml(input("File name: "))
         print("Executed -ls on current folder")
-    elif choice == "4":
-        password = input("Enter master password: ")
-        authenticate(password)
+    elif CHOICE == "4":
+        PASSWORD = input("Enter master password: ")
+        authenticate(PASSWORD)
